@@ -14,16 +14,10 @@ public class DelayedGhost extends GhostPlayer{
 	
 	ScatterDelayeGhost scatter;
 	HuntDelayedGhost hunt;
-	/*Game game;
-	State state;*/
 	
 	Location target = new Location(0,0);
 	
-	private Move lastMove = null;
-	
 	Random rand = new Random();
-	
-	int count = 0;
 	
 	public DelayedGhost() {
 		stateMachine = new StateMachineGhost<DelayedGhost>(this);
@@ -71,31 +65,7 @@ public class DelayedGhost extends GhostPlayer{
 		      }
 		    }    
 		    if (bestMove==null) throw new RuntimeException("Legal moves for ghost "+ghostIndex+": " + legalMoves);
-		    lastMove = bestMove; //salva o ultimo movimento
 		    return bestMove;
 	}
-	
-	/*//Seta o alvo como o ponto mais distante do pacman
-	public void setScatterTarget(Location target) {
-		
-		this.target = target;
-		
-	}
-	
-	public Location getTarget() {
-		return target;
-	}
-	
-	//Seta o alvo como a posição do pacman no estado anterior
-	public Location setHuntTarget(Game game, State s) {
-		Location target;
-		State teste = s.getParent();
-		List<State> history = s.getHistory(); //pega os estados anteriores
-		Location pacmanLoc = history.get(history.size() - 2).getPacManLocation(); //pega a posição do pacman no penultimo estado
-		target = pacmanLoc;
-		
-		return target;
-		
-	}*/
 
 }
