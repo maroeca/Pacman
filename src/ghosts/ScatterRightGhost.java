@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import pacman.Game;
+import pacman.GhostPlayer;
 import pacman.Move;
 
 public class ScatterRightGhost implements GhostState<RightGhost>{
@@ -31,18 +32,17 @@ public class ScatterRightGhost implements GhostState<RightGhost>{
 	
 	@Override
 	public void Enter(RightGhost npc) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 	}
 
 	@Override
 	public void Execute(RightGhost npc) {
 		List<Move>legalMoves = game.getLegalGhostMoves(ghostIndex);
 		Random rand = new Random();
-		for(Move m: legalMoves) {
+		for(Move m: legalMoves) { //varre a lista de movimentos validos e se for possivel virar para a direita o faz
 			if(m == Move.RIGHT) {
 				bestMove = m;
-			}else {
+			}else { //senão escolhe um random
 				bestMove = legalMoves.get(rand.nextInt(legalMoves.size()));
 			}
 		}
@@ -66,7 +66,10 @@ public class ScatterRightGhost implements GhostState<RightGhost>{
 
 	@Override
 	public boolean onMessage(RightGhost npc, Message msg) {
-		// TODO Auto-generated method stub
+		if(msg.getMessage().compareTo("Hunt") == 0) { //teste com as mensagens
+			System.out.println("Right ghost received: "+msg.getMessage() + " from Scatter Delayed");
+			return true;
+		}
 		return false;
 	}
 

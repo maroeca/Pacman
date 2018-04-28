@@ -19,7 +19,7 @@ public abstract class GhostPlayer {
 
   private Color color = Color.PINK;
   private String name =  "";
-  protected StateMachineGhost stateMachine;
+  protected StateMachineGhost stateMachine; //declaração da stateMachine usada por todos
 	
   public abstract Move chooseMove(Game game, int ghostIndex);
   
@@ -39,6 +39,7 @@ public abstract class GhostPlayer {
   		return distribution;
   }
   
+  //handleMessage igual do farmer bob
   public boolean handleMessage(Message msg) {
       return this.stateMachine.handleMessage(msg);
   }

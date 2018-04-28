@@ -1,5 +1,5 @@
 package ghosts;
-
+/*Mesmo esquema do farmerbob */
 public class StateMachineGhost <NonPlayableCharacter>{
 	
 	private NonPlayableCharacter myOwner;

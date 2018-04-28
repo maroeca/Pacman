@@ -27,7 +27,7 @@ public class DelayedGhost extends GhostPlayer{
 	
 	public DelayedGhost() {
 		stateMachine = new StateMachineGhost<DelayedGhost>(this);
-		
+		this.setName("DelayedGhost");
 	}
 	
 	public StateMachineGhost<DelayedGhost> getStateMachine(){
@@ -37,27 +37,21 @@ public class DelayedGhost extends GhostPlayer{
 	
 	@Override
 	public Move chooseMove(Game game, int ghostIndex) {
-		//this.game = game;
-		scatter = ScatterDelayeGhost.getInstance(game);
-		hunt = HuntDelayedGhost.getInstance(game);
-		//estado atual
-		//System.out.println(stateMachine);
-		if(stateMachine.getCurrentState() == null) {
+		scatter = ScatterDelayeGhost.getInstance(game); //pra facilitar a escrita
+		hunt = HuntDelayedGhost.getInstance(game); //idem
+		
+		if(stateMachine.getCurrentState() == null) { //se nenhum estado estiver setado, seta o scatter
 			stateMachine.setCurrentState(scatter);
-		}
-		
-		
+		}		
 		
 		State state = game.getCurrentState(); //Estado atual do jogo
-		//this.state = state;
 		Location target = null; //local alvo
 		List<Move> legalMoves = game.getLegalGhostMoves(ghostIndex); //movimentos possiveis
 		Move bestMove = null; //melhor escolha
-	    double minDistance = Double.POSITIVE_INFINITY; 
+	    double minDistance = Double.POSITIVE_INFINITY; //variavel de comparação
 	    Location myLoc = state.getGhostLocations().get(ghostIndex); //minha posição
 	    
-		
-		count++; //contator pra controlar mudança dos estados
+	    //Verifica em qual estado tá para definir o target
 		if(stateMachine.getCurrentState() == hunt) {
 			stateMachine.update();
 			target = hunt.getTarget();
@@ -66,17 +60,8 @@ public class DelayedGhost extends GhostPlayer{
 			stateMachine.update();
 			target = scatter.getTarget();
 		}
-		/*if(count > 50) {
-			stateMachine.get changeState(scatter);
-			stateMachine.update();
-			target = scatter.getTarget();
-			if(count > 100) count = 0;
-		}else {
-			stateMachine.changeState(hunt);
-			stateMachine.update();
-			target = hunt.getTarget();
-		}*/
 		
+		//foreach pelos movimentos possíveis
 		for (Move m : legalMoves) {
 		      Location nextLoc = Game.getNextLocation(myLoc, m); //escolhe o proximo local a partir da localização e movimentos possiveis
 		      double distance = Location.euclideanDistance(nextLoc, target); //calcula a distancia entre o local acima e o alvo
@@ -90,27 +75,10 @@ public class DelayedGhost extends GhostPlayer{
 		    return bestMove;
 	}
 	
-	//Seta o alvo como o ponto mais distante do pacman
+	/*//Seta o alvo como o ponto mais distante do pacman
 	public void setScatterTarget(Location target) {
 		
 		this.target = target;
-		/*double minDistance = 8.0f;
-		Location target = null;
-		
-		List<Location> allLoc =  new ArrayList<Location>(s.getDotLocations());
-		for(Location loc: allLoc) {
-			double distance = Location.euclideanDistance(loc, s.getPacManLocation());
-			if(distance > minDistance) {
-				target = loc;
-				minDistance = distance;
-				System.out.println(target + " "+ s.getPacManLocation());
-			}else {
-				target = allLoc.get(rand.nextInt(allLoc.size()));
-			}
-		}
-		//target = allLoc.get(rand.nextInt(allLoc.size()));
-		
-		return target;*/
 		
 	}
 	
@@ -128,6 +96,6 @@ public class DelayedGhost extends GhostPlayer{
 		
 		return target;
 		
-	}
+	}*/
 
 }

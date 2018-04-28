@@ -57,7 +57,10 @@ public class HuntRightGhost implements GhostState<RightGhost>{
 
 	@Override
 	public boolean onMessage(RightGhost npc, Message msg) {
-		// TODO Auto-generated method stub
+		if(msg.getMessage().compareTo("Hunt") == 0) {
+			System.out.println("Right ghost received: "+msg.getMessage() + " from Hunt Delayed");
+			return true;
+		}
 		return false;
 	}
 

@@ -10,10 +10,10 @@ import pacman.Location;
 import pacman.State;
 
 public class ScatterDelayeGhost implements GhostState<DelayedGhost>{
-	Game game;
+	Game game; //referencia para o jogo
 	State state;
-	int count = 0;
-	Location target;
+	int count = 0; //count do "tempo" para mudar os estados
+	Location target; //target a ser passado para o ghost
 	
 	//Begin Singleton
    public static ScatterDelayeGhost instance = null;
@@ -28,13 +28,7 @@ public class ScatterDelayeGhost implements GhostState<DelayedGhost>{
         }
         return instance;
     }
-    //End Singleton
-    /*Scatter(Game game){
-		this.game = game;
-		//this.state = state;
-	}*/
-    
-	
+    //End Singleton	
 	
 	@Override
 	public void Enter(DelayedGhost npc) {
@@ -43,29 +37,27 @@ public class ScatterDelayeGhost implements GhostState<DelayedGhost>{
 
 	@Override
 	public void Execute(DelayedGhost npc) {
-		double minDistance = 8.0f;
-		//Location target = null;
-		State s = game.getCurrentState();
-		//target = s.getPacManLocation();
-		//System.out.println(count);
+		double minDistance = Double.NEGATIVE_INFINITY;
+		State s = game.getCurrentState(); //pega o estado atual para ter acesso as posições
 		
 		Random rand = new Random();
 		
-		List<Location> allLoc =  new ArrayList<Location>(s.getDotLocations());
+		List<Location> allLoc =  new ArrayList<Location>(s.getDotLocations()); //uma list com todas as localizações dos pontos
+		//foreach pela lista das posições dos pontos
 		for(Location loc: allLoc) {
-			double distance = Location.euclideanDistance(loc, s.getPacManLocation());
-			if(distance > minDistance) {
+			double distance = Location.euclideanDistance(loc, s.getPacManLocation()); //calcula a distancia entre cada ponto e a posição do pacboy
+			if(distance > minDistance) { //escolhe o ponto mais distante do pacboy
 				target = loc;
 				minDistance = distance;
 				//System.out.println(target + " "+ s.getPacManLocation());
-			}else {
+			}else { //senão pega um ponto random
 				target = allLoc.get(rand.nextInt(allLoc.size()));
 			}
 		}	
-		count++;
+		count++; //incrementa o tempo
 		if(count > 50) {
 			count = 0;
-			npc.getStateMachine().changeState(HuntDelayedGhost.getInstance(game));
+			npc.getStateMachine().changeState(HuntDelayedGhost.getInstance(game)); //muda o estado
 		}
 	}
 	
