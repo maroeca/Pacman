@@ -65,4 +65,10 @@ public class HuntDelayedGhost implements GhostState<DelayedGhost>{
 		return target;
 	}
 
+	@Override
+	public boolean onMessage(DelayedGhost npc, Message msg) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
