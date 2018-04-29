@@ -51,6 +51,7 @@ public class RightGhost extends GhostPlayer {
 			      }
 			    }    
 		}
+		this.setLastMove(bestMove);
 		
 		return bestMove;
 	}

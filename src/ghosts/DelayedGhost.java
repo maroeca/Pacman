@@ -12,12 +12,14 @@ import pacman.State;
 
 public class DelayedGhost extends GhostPlayer{
 	
-	ScatterDelayeGhost scatter;
+	ScatterDelayedGhost scatter;
 	HuntDelayedGhost hunt;
 	
 	Location target = new Location(0,0);
 	
 	Random rand = new Random();
+	
+	Move bestMove = null; //melhor escolha
 	
 	public DelayedGhost() {
 		stateMachine = new StateMachineGhost<DelayedGhost>(this);
@@ -31,7 +33,7 @@ public class DelayedGhost extends GhostPlayer{
 	
 	@Override
 	public Move chooseMove(Game game, int ghostIndex) {
-		scatter = ScatterDelayeGhost.getInstance(game); //pra facilitar a escrita
+		scatter = ScatterDelayedGhost.getInstance(game); //pra facilitar a escrita
 		hunt = HuntDelayedGhost.getInstance(game); //idem
 		
 		if(stateMachine.getCurrentState() == null) { //se nenhum estado estiver setado, seta o scatter
@@ -41,7 +43,7 @@ public class DelayedGhost extends GhostPlayer{
 		State state = game.getCurrentState(); //Estado atual do jogo
 		Location target = null; //local alvo
 		List<Move> legalMoves = game.getLegalGhostMoves(ghostIndex); //movimentos possiveis
-		Move bestMove = null; //melhor escolha
+		
 	    double minDistance = Double.POSITIVE_INFINITY; //variavel de comparação
 	    Location myLoc = state.getGhostLocations().get(ghostIndex); //minha posição
 	    
@@ -65,7 +67,7 @@ public class DelayedGhost extends GhostPlayer{
 		      }
 		    }    
 		    if (bestMove==null) throw new RuntimeException("Legal moves for ghost "+ghostIndex+": " + legalMoves);
+		    this.setLastMove(bestMove);
 		    return bestMove;
 	}
-
 }

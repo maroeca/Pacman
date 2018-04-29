@@ -32,18 +32,17 @@ public class HuntDelayedGhost implements GhostState<DelayedGhost>{
 	
 	@Override
 	public void Enter(DelayedGhost npc) {
-		System.out.println("Entrando no Hunt");
-		
+		//Envia a mensagem para o MirrorGhost avisando que entrou no modo hunt
 		//Compara os nomes dos ghosts para enviar para os ghosts certos
 		String[] names; //array de string que recebe o split
 		for (int i = 0; i < game.getGhostPlayers().size(); i++) {
 			names = game.getGhostPlayers().get(i).getName().split(Pattern.quote(".")); //divide o game em dois onde tem ponto
-			System.out.println(names);
-			if(names[1].compareTo("RightGhost") == 0) { //verifica se a segunda parte do nome é igual ao nome do ghost
+			if(names[1].compareTo("MirrorGhost") == 0) { //verifica se a segunda parte do nome é igual ao nome do ghost
 				ghostReceiver = game.getGhostPlayers().get(i); //se for o ghostReceiver recebe o ghost
 			}
 		}
-		MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "Hunt", null); //envia a mensagem
+		if(ghostReceiver != null)
+			MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "DelayedGhost Hunt", null); //envia a mensagem
 		
 	}
 
@@ -64,14 +63,14 @@ public class HuntDelayedGhost implements GhostState<DelayedGhost>{
 		count++;
 		if(count > 50) {
 			count = 0;
-			npc.getStateMachine().changeState(ScatterDelayeGhost.getInstance(game));
+			npc.getStateMachine().changeState(ScatterDelayedGhost.getInstance(game));
 		}
 	}
 
 	@Override
 	public void Exit(DelayedGhost npc) {
-		System.out.println("Saindo do Hunt");
-		
+		//Envia mensagem para o Mirror avisando que saiu do Hunt
+		MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "DelayedGhost Scatter", null); //envia a mensagem
 	}
 	
 	public Location getTarget() {

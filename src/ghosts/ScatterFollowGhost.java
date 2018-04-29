@@ -2,6 +2,7 @@ package ghosts;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import pacman.Game;
 import pacman.GhostPlayer;
@@ -17,7 +18,7 @@ public class ScatterFollowGhost implements GhostState<FollowGhost>{
 	int count = 0;
 	int timeToChangeState = 50;
 	
-	double minDistance = Double.POSITIVE_INFINITY;
+	double minDistance;
 	
 	//Begin Singleton
 	   public static ScatterFollowGhost instance = null;
@@ -45,19 +46,29 @@ public class ScatterFollowGhost implements GhostState<FollowGhost>{
 	@Override
 	public void Execute(FollowGhost npc) {
 		State s = game.getCurrentState();
+		Random rand = new Random();
 		
-		Location myLoc = s.getGhostLocations().get(ghostIndex);
-		minDistance = Location.euclideanDistance(myLoc, s.getPacManLocation());
+		minDistance = Double.NEGATIVE_INFINITY;//Location.euclideanDistance(myLoc, s.getPacManLocation());
 		
 		for (Location loc : s.getGhostLocations()) {
 			double distance = Location.euclideanDistance(loc, s.getPacManLocation());
-			if(distance < minDistance) {
+			if(distance > minDistance) {
 				target = loc;
 			}else {
-				target = s.getPacManLocation();
+				target = s.getGhostLocations().get(rand.nextInt(s.getGhostLocations().size()));
 			}
 		}
 		
+		count++;
+		if(count > timeToChangeState) {
+			count = 0;
+			npc.getStateMachine().changeState(HuntFollowGhost.getInstance(game, ghostIndex));
+		}
+		
+	}
+	
+	Location getTarget() {
+		return target;
 	}
 
 	@Override

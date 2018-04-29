@@ -23,6 +23,7 @@ public class StateMachineGhost <NonPlayableCharacter>{
 
     public void setCurrentState(GhostState<NonPlayableCharacter> s){
         estadoAtual = s;
+        estadoAtual.Enter(myOwner);
     }
 
     public void setGlobalState(GhostState<NonPlayableCharacter> s){
