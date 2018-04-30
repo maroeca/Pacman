@@ -14,6 +14,8 @@ public class TryhardGhost extends GhostPlayer {
 	ScatterTryhardGhost scatter;
 	HuntTryhardGhost hunt;
 	
+	boolean isTrying = false; //variavel pra quando tiver na cola do pacman
+	
 	public TryhardGhost() {
 		this.stateMachine = new StateMachineGhost<TryhardGhost>(this);
 		this.setName("TryhardGhost");
@@ -51,14 +53,18 @@ public class TryhardGhost extends GhostPlayer {
 		
 		for (Move m : moves) {
 			Location next = Game.getNextLocation(mine, m);
-			double d = Location.manhattanDistance(next, target);
+			double d = Location.euclideanDistance(next, target);
 			
 			if (d < minDist) {
 				minDist = d;
 				bestMove = m;
 			}
 		}
-		
+		if (minDist <= 5.0)
+			isTrying = true;
+		else 
+			isTrying = false;
+		System.out.println("distancia da raba: " + minDist);
 	    if (bestMove == null) throw new RuntimeException("Legal moves for ghost "+ghostIndex+": " + moves);
 	    return bestMove;
 	}

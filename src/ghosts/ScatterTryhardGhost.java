@@ -25,7 +25,8 @@ public class ScatterTryhardGhost implements GhostState<TryhardGhost> {
 	}
 	@Override
 	public void Enter(TryhardGhost npc) {
-		// TODO Auto-generated method stub
+		System.out.println("--------------");
+		System.out.println("TryhardGhost scatter");
 		
 	}
 

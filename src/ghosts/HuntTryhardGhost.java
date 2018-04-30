@@ -29,7 +29,8 @@ public class HuntTryhardGhost implements GhostState<TryhardGhost> {
 	
 	@Override
 	public void Enter(TryhardGhost npc) {
-		// TODO Auto-generated method stub
+		System.out.println("--------------");
+		System.out.println("TryhardGhost hunt");
 		
 	}
 
@@ -39,7 +40,7 @@ public class HuntTryhardGhost implements GhostState<TryhardGhost> {
 		target = s.getPacManLocation();
 		
 		count++;
-		if (count > 50) {
+		if (count > 50 && !npc.isTrying) {
 			count = 0;
 			npc.getStateMachine().setCurrentState(HuntTryhardGhost.getInstance(game));
 		}

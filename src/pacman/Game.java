@@ -46,7 +46,7 @@ public class Game {
   // stuff about this instance of the game
   private Display display;
 
-  private int moveTime = 100;
+  private int moveTime = 150;
 
   private List<GhostPlayer> ghostPlayers;
 
