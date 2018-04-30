@@ -61,6 +61,8 @@ public class SimplePacManPlayer implements PacManPlayer {
     
     //Armazena o último movimento feito:
     lastMove = move; 
+    
+    System.out.println("Pacman moves " + move);
     return move;
   }
 

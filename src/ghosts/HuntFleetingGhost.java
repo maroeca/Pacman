@@ -1,4 +1,4 @@
-package ghosts;
+	package ghosts;
 import java.util.regex.Pattern;
 
 import ghosts.*;
