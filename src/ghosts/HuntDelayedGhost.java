@@ -70,7 +70,8 @@ public class HuntDelayedGhost implements GhostState<DelayedGhost>{
 	@Override
 	public void Exit(DelayedGhost npc) {
 		//Envia mensagem para o Mirror avisando que saiu do Hunt
-		MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "DelayedGhost Scatter", null); //envia a mensagem
+		if(ghostReceiver != null)
+			MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "DelayedGhost Scatter", null); //envia a mensagem
 	}
 	
 	public Location getTarget() {

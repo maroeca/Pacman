@@ -64,7 +64,8 @@ public class HuntTryhardGhost implements GhostState<TryhardGhost> {
 
 	@Override
 	public void Exit(TryhardGhost npc) {
-		MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "TryhardGhost Scatter", null); //envia a mensagem
+		if(ghostReceiver != null)
+			MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "TryhardGhost Scatter", null); //envia a mensagem
 	}
 
 	@Override

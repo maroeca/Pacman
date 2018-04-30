@@ -60,7 +60,8 @@ public class HuntFleetingGhost implements GhostState<FleetingGhost> {
 
 	@Override
 	public void Exit(FleetingGhost npc) {
-		MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "FleetingGhost Scatter", null); //envia a mensagem
+		if(ghostReceiver != null)
+			MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "FleetingGhost Scatter", null); //envia a mensagem
 
 	}
 

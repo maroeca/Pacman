@@ -80,7 +80,8 @@ public class HuntBlindGhost implements GhostState<BlindGhost> {
 
 	@Override
 	public void Exit(BlindGhost npc) {
-		MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "BlindGhost Scatter", null); //envia a mensagem
+		if(ghostReceiver != null)
+			MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "BlindGhost Scatter", null); //envia a mensagem
 		
 	}
 

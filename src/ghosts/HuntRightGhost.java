@@ -60,7 +60,8 @@ public class HuntRightGhost implements GhostState<RightGhost>{
 	@Override
 	public void Exit(RightGhost npc) {
 		//Envia mensagem para o Mirror avisando que saiu do Hunt
-		MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "RightGhost Scatter", null); //envia a mensagem		
+		if(ghostReceiver != null)
+			MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "RightGhost Scatter", null); //envia a mensagem		
 	}
 	
 	public Location getTarget() {

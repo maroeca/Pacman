@@ -85,7 +85,8 @@ public class HuntCopyGhost implements GhostState<CopyGhost> {
 	}
 	@Override
 	public void Exit(CopyGhost npc) {
-		MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "CopyGhost Scatter", null); //envia a mensagem
+		if(ghostReceiver != null)
+			MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "CopyGhost Scatter", null); //envia a mensagem
 		
 	}
 

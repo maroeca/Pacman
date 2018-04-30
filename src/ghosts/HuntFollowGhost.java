@@ -79,7 +79,8 @@ public class HuntFollowGhost implements GhostState<FollowGhost>{
 	@Override
 	public void Exit(FollowGhost npc) {
 		//Envia mensagem para o Mirror avisando que saiu do Hunt
-		MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "FollowGhost Scatter", null); //envia a mensagem		
+		if(ghostReceiver != null)
+			MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "FollowGhost Scatter", null); //envia a mensagem		
 	}
 
 	@Override
