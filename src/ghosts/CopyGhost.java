@@ -18,6 +18,7 @@ public class CopyGhost extends GhostPlayer {
 	
 	public CopyGhost() {
 		stateMachine = new StateMachineGhost<CopyGhost>(this);
+		this.setName("CopyGhost");
 	}
 	
 	@Override

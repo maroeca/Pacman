@@ -1,4 +1,6 @@
 package ghosts;
+import java.util.regex.Pattern;
+
 import ghosts.*;
 import pacman.*;
 
@@ -11,6 +13,8 @@ public class HuntBlindGhost implements GhostState<BlindGhost> {
 	int count = 0;
 	Location target;
 	static Location pacman;
+	
+	GhostPlayer ghostReceiver;
 	
 	double minDistance = Double.POSITIVE_INFINITY;
 	
@@ -34,6 +38,16 @@ public class HuntBlindGhost implements GhostState<BlindGhost> {
 		pacman = s.getPacManLocation();
 		
 		System.out.println("Target encontrado: " + pacman.getX() + ", " + pacman.getY());
+	
+		String[] names; //array de string que recebe o split
+		for (int i = 0; i < game.getGhostPlayers().size(); i++) {
+			names = game.getGhostPlayers().get(i).getName().split(Pattern.quote(".")); //divide o game em dois onde tem ponto
+			if(names[1].compareTo("MirrorGhost") == 0) { //verifica se a segunda parte do nome é igual ao nome do ghost
+				ghostReceiver = game.getGhostPlayers().get(i); //se for o ghostReceiver recebe o ghost
+			}
+		}
+		if(ghostReceiver != null)
+			MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "BlindGhost Hunt", null); //envia a mensagem
 	}
 
 	@Override
@@ -66,7 +80,7 @@ public class HuntBlindGhost implements GhostState<BlindGhost> {
 
 	@Override
 	public void Exit(BlindGhost npc) {
-		// TODO Auto-generated method stub
+		MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "BlindGhost Scatter", null); //envia a mensagem
 		
 	}
 

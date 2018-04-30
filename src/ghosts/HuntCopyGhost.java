@@ -1,6 +1,7 @@
 package ghosts;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 import pacman.*;
 
@@ -11,6 +12,8 @@ public class HuntCopyGhost implements GhostState<CopyGhost> {
 	int count = 0;
 	
 	Move bestMove;
+	
+	GhostPlayer ghostReceiver;
 	
 	//Singleton
 	private static HuntCopyGhost instance = null;
@@ -30,6 +33,15 @@ public class HuntCopyGhost implements GhostState<CopyGhost> {
 	public void Enter(CopyGhost npc) {
 		System.out.println("Copy hunt");
 		
+		String[] names; //array de string que recebe o split
+		for (int i = 0; i < game.getGhostPlayers().size(); i++) {
+			names = game.getGhostPlayers().get(i).getName().split(Pattern.quote(".")); //divide o game em dois onde tem ponto
+			if(names[1].compareTo("MirrorGhost") == 0) { //verifica se a segunda parte do nome é igual ao nome do ghost
+				ghostReceiver = game.getGhostPlayers().get(i); //se for o ghostReceiver recebe o ghost
+			}
+		}
+		if(ghostReceiver != null)
+			MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "CopyGhost Hunt", null); //envia a mensagem
 	}
 
 	@Override
@@ -73,7 +85,7 @@ public class HuntCopyGhost implements GhostState<CopyGhost> {
 	}
 	@Override
 	public void Exit(CopyGhost npc) {
-		// TODO Auto-generated method stub
+		MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "CopyGhost Scatter", null); //envia a mensagem
 		
 	}
 

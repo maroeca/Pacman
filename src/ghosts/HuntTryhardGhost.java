@@ -1,6 +1,7 @@
 package ghosts;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 import pacman.*;
 
@@ -8,6 +9,7 @@ public class HuntTryhardGhost implements GhostState<TryhardGhost> {
 
 	Game game;
 	Location target;
+	GhostPlayer ghostReceiver;
 	
 	int count = 0;
 	
@@ -32,6 +34,16 @@ public class HuntTryhardGhost implements GhostState<TryhardGhost> {
 		System.out.println("--------------");
 		System.out.println("TryhardGhost hunt");
 		
+		String[] names; //array de string que recebe o split
+		for (int i = 0; i < game.getGhostPlayers().size(); i++) {
+			names = game.getGhostPlayers().get(i).getName().split(Pattern.quote(".")); //divide o game em dois onde tem ponto
+			if(names[1].compareTo("MirrorGhost") == 0) { //verifica se a segunda parte do nome é igual ao nome do ghost
+				ghostReceiver = game.getGhostPlayers().get(i); //se for o ghostReceiver recebe o ghost
+			}
+		}
+		if(ghostReceiver != null)
+			MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "TryhardGhost Hunt", null); //envia a mensagem
+		
 	}
 
 	@Override
@@ -52,8 +64,7 @@ public class HuntTryhardGhost implements GhostState<TryhardGhost> {
 
 	@Override
 	public void Exit(TryhardGhost npc) {
-		// TODO Auto-generated method stub
-		
+		MessageDispatcher.getInstance().dispatchMessage(npc, ghostReceiver, "TryhardGhost Scatter", null); //envia a mensagem
 	}
 
 	@Override
