@@ -64,8 +64,8 @@ public class TryhardGhost extends GhostPlayer {
 			isTrying = true;
 		else 
 			isTrying = false;
-		System.out.println("distancia da raba: " + minDist);
 	    if (bestMove == null) throw new RuntimeException("Legal moves for ghost "+ghostIndex+": " + moves);
+	    this.setLastMove(bestMove);
 	    return bestMove;
 	}
 

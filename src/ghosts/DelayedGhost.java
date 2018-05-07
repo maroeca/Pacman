@@ -10,6 +10,7 @@ import pacman.Location;
 import pacman.Move;
 import pacman.State;
 
+/*Pega a penultima posição do pacman como target no modo hunt*/
 public class DelayedGhost extends GhostPlayer{
 	
 	ScatterDelayedGhost scatter;
@@ -67,6 +68,7 @@ public class DelayedGhost extends GhostPlayer{
 		      }
 		    }    
 		    if (bestMove==null) throw new RuntimeException("Legal moves for ghost "+ghostIndex+": " + legalMoves);
+		    
 		    this.setLastMove(bestMove);
 		    return bestMove;
 	}

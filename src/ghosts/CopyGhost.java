@@ -44,10 +44,9 @@ public class CopyGhost extends GhostPlayer {
 			}
 			
 			if (bestMove == null) { //i.e. o movimento do estado nao é possivel, portanto ele vai retornar o primeiro movimento possivel
-				System.out.println("nao deu pra copiar o pacman");
 				return legalMoves.get(0);
 			} else {
-				System.out.println("Copy ghost: "+ bestMove);
+				this.setLastMove(bestMove);
 				return bestMove;
 			}
 		
@@ -70,6 +69,8 @@ public class CopyGhost extends GhostPlayer {
 				}
 			}
 			if (best == null) throw new RuntimeException("Legal moves for ghost "+ghostIndex+": " + legalMoves);
+			
+			this.setLastMove(best);
 			return best;		
 		}
 	

@@ -32,7 +32,7 @@ public class ScatterTryhardGhost implements GhostState<TryhardGhost> {
 
 	@Override
 	public void Execute(TryhardGhost npc) {
-State s = game.getCurrentState(); 
+		State s = game.getCurrentState(); 
 		
 		List<Location> dots = s.getDotLocations().list();
 		Location pacman = s.getPacManLocation();
