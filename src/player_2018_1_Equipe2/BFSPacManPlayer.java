@@ -1,68 +1,28 @@
 package player_2018_1_Equipe2;
 
 import java.util.Collection;
-
-import java.util.List;
 import java.util.Random;
 
 import pacman.Game;
 import pacman.Location;
 import pacman.Move;
-import pacman.PacManPlayer;
 import pacman.State;
-import pacman.StateEvaluator;
 import player.DFSPacManPlayer;
-import util.Counter;
 
-public class GreedyPacManPlayer extends DFSPacManPlayer {
+public class BFSPacManPlayer extends DFSPacManPlayer{
 
 	private Move lastMove = null; //vai ser usado para evitar o retorno
 	private Move bestMove = null;
 	private Random random = new Random();
 	
-	
 	@Override
 	public Move chooseMove(Game game) {
-		//estado atual
-		State s = game.getCurrentState(); 
 		
-		//Movimentos possiveis do pacman
-		List<Move> legalMoves = game.getLegalPacManMoves();
 		
-		double lastScore = Double.NEGATIVE_INFINITY;
-		
-		//Counter retorna uma especie de hashtable, atribui um double a um move(nesse caso)
-		//Counter<Move> scores = new Counter<Move>();
-		
-		//verifica as ações possiveis(nodes)
-		for(Move move: legalMoves) {
-			//pega o proximo estado a partir do movimento atual
-			State nextState = Game.getNextState(s, move);			
-			
-			//calcula o score a aplicando as heuristicas
-			double stateScore = evaluateState(nextState);			
-			
-			//verificação pra n voltar o movimento(ta igual do simplepacman, melhor mudar)
-			double cantTurnBack = (lastMove == move.getOpposite() ? -10.0 : 0.0);
-			//System.out.println(stateScore + cantTurnBack + " "+ move);
-
-			//retorna o movimento com melhor score
-			if((stateScore + cantTurnBack) > lastScore) {
-				lastScore = stateScore + cantTurnBack;
-				System.out.println(lastScore);
-				bestMove = move;
-			}else //caso o score seja igual randomiza o move entre os possiveis
-				if((stateScore + cantTurnBack) == lastScore) {
-					bestMove = lastMove; //legalMoves.get(random.nextInt(legalMoves.size()));
-					System.out.println("Randomizou");
-				}
-			
-		}	
 		lastMove = bestMove;
 		return bestMove;
-		
 	}
-	
+
 	//HEURISTICAS
 	@Override
 	public double evaluateState(State state) {
@@ -128,4 +88,10 @@ public class GreedyPacManPlayer extends DFSPacManPlayer {
 		return closest;
 	}
 	
+	public Move buscaProfundidade(int level, State state) {
+		Move bestMove = null;
+		
+		
+		return bestMove;
+	}
 }
