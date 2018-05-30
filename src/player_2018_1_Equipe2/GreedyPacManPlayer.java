@@ -86,6 +86,9 @@ public class GreedyPacManPlayer extends DFSPacManPlayer {
 		//distancia do pacman para o ponto mais perto
 		score -= Location.manhattanDistance(pacManLoc, closestDot);
 		
+		//Quantidade de pontos em jogo
+		score -= state.getDotLocations().size();
+		
 		return score;
 		
 	}
