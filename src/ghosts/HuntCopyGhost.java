@@ -36,7 +36,7 @@ public class HuntCopyGhost implements GhostState<CopyGhost> {
 		String[] names; //array de string que recebe o split
 		for (int i = 0; i < game.getGhostPlayers().size(); i++) {
 			names = game.getGhostPlayers().get(i).getName().split(Pattern.quote(".")); //divide o game em dois onde tem ponto
-			if(names[1].compareTo("MirrorGhost") == 0) { //verifica se a segunda parte do nome é igual ao nome do ghost
+			if(names[1].compareTo("MirrorGhost") == 0) { //verifica se a segunda parte do nome e igual ao nome do ghost
 				ghostReceiver = game.getGhostPlayers().get(i); //se for o ghostReceiver recebe o ghost
 			}
 		}

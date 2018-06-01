@@ -37,13 +37,13 @@ public class CopyGhost extends GhostPlayer {
 			stateMachine.update();
 			checkMove = hunt.getMove();
 			
-			for(Move m : legalMoves) { //verifica se o movimento do estado é possivel
+			for(Move m : legalMoves) { //verifica se o movimento do estado e possivel
 				if (m == checkMove) {
 					bestMove = m;
 				}
 			}
 			
-			if (bestMove == null) { //i.e. o movimento do estado nao é possivel, portanto ele vai retornar o primeiro movimento possivel
+			if (bestMove == null) { //i.e. o movimento do estado nao e possivel, portanto ele vai retornar o primeiro movimento possivel
 				return legalMoves.get(0);
 			} else {
 				this.setLastMove(bestMove);

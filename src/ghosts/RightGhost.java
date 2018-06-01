@@ -16,7 +16,7 @@ public class RightGhost extends GhostPlayer {
 	
 	public RightGhost(){
 		stateMachine = new StateMachineGhost<RightGhost>(this);
-		this.setName("RightGhost"); //não esqueça de setar os nomes para poder usar as mensagens
+		this.setName("RightGhost"); //nao esqueca de setar os nomes para poder usar as mensagens
 	}
 	
 	@Override
@@ -29,11 +29,11 @@ public class RightGhost extends GhostPlayer {
 			stateMachine.setCurrentState(scatter);
 		}
 		
-		//lista com os movimentos possíveis para o ghost
+		//lista com os movimentos possiveis para o ghost
 		List<Move>legalMoves = game.getLegalGhostMoves(ghostIndex);
-		Move bestMove = legalMoves.get(0); //inicia o bestmove com o primeiro movimento valido apenas para não dar erro caso algo n de certo rs	
+		Move bestMove = legalMoves.get(0); //inicia o bestmove com o primeiro movimento valido apenas para nao dar erro caso algo n de certo rs
 		
-		//verificação dos targets
+		//verificacao dos targets
 		if(stateMachine.getCurrentState() == scatter) {
 			stateMachine.update(); //chama o update sempre, da erro sem ele 
 			bestMove = ScatterRightGhost.getInstance(game, ghostIndex).getMove();
@@ -41,9 +41,9 @@ public class RightGhost extends GhostPlayer {
 			stateMachine.update();
 			Location target = hunt.getTarget(); //recebe o target calculado no estado hunt
 			double minDistance = Double.POSITIVE_INFINITY; 
-		    Location myLoc = state.getGhostLocations().get(ghostIndex); //minha posição 
+		    Location myLoc = state.getGhostLocations().get(ghostIndex); //minha posicao
 		    for (Move m : legalMoves) {
-			      Location nextLoc = Game.getNextLocation(myLoc, m); //escolhe o proximo local a partir da localização e movimentos possiveis
+			      Location nextLoc = Game.getNextLocation(myLoc, m); //escolhe o proximo local a partir da localizacao e movimentos possiveis
 			      double distance = Location.euclideanDistance(nextLoc, target); //calcula a distancia entre o local acima e o alvo
 			      if (distance < minDistance) { //se for a menor, seta o movimento como melhor
 			        minDistance = distance;

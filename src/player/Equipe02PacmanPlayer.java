@@ -13,7 +13,7 @@ public class Equipe02PacmanPlayer implements PacManPlayer{
 	public Move lastmove = null;
 	@Override
 	public Move chooseMove(Game game) {
-		//Obtem a lista de movimentos válidos e retorna o primeiro movimento válido
+		//Obtem a lista de movimentos validos e retorna o primeiro movimento valido
 		List<Move>legalMoves = game.getLegalPacManMoves();
 		Random rand = new Random();
 		count += game.getMoveTime() / 100;

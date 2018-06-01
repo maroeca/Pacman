@@ -11,7 +11,7 @@ import pacman.Location;
 import pacman.Move;
 import pacman.State;
 
-/*Tem o target como pontos aleatórios até receber uma mensagem e mudar de estado*/
+/*Tem o target como pontos aleatorios ate receber uma mensagem e mudar de estado*/
 
 public class ScatterMirrorGhost implements GhostState<MirrorGhost>{
 

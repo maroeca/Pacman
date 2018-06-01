@@ -68,12 +68,12 @@ public class MirrorGhost extends GhostPlayer {
 			stateMachine.update();
 			target = scatter.getTarget();
 			
-		    double minDistance = Double.POSITIVE_INFINITY; //variavel de comparação
-		    Location myLoc = state.getGhostLocations().get(ghostIndex); //minha posição
+		    double minDistance = Double.POSITIVE_INFINITY; //variavel de comparacao
+		    Location myLoc = state.getGhostLocations().get(ghostIndex); //minha posicao
 		    
-		  //foreach pelos movimentos possíveis
+		  //foreach pelos movimentos possiveis
 		  	for (Move m : legalMoves) {
-		  	 Location nextLoc = Game.getNextLocation(myLoc, m); //escolhe o proximo local a partir da localização e movimentos possiveis
+		  	 Location nextLoc = Game.getNextLocation(myLoc, m); //escolhe o proximo local a partir da localizacao e movimentos possiveis
 		  	 double distance = Location.euclideanDistance(nextLoc, target); //calcula a distancia entre o local acima e o alvo
 		  	 if (distance < minDistance) { //se for a menor, seta o movimento como melhor
 		  		 minDistance = distance;

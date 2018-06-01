@@ -10,7 +10,7 @@ import pacman.Location;
 import pacman.Move;
 import pacman.State;
 
-/*Pega a penultima posição do pacman como target no modo hunt*/
+/*Pega a penultima posicao do pacman como target no modo hunt*/
 public class DelayedGhost extends GhostPlayer{
 	
 	ScatterDelayedGhost scatter;
@@ -45,10 +45,10 @@ public class DelayedGhost extends GhostPlayer{
 		Location target = null; //local alvo
 		List<Move> legalMoves = game.getLegalGhostMoves(ghostIndex); //movimentos possiveis
 		
-	    double minDistance = Double.POSITIVE_INFINITY; //variavel de comparação
-	    Location myLoc = state.getGhostLocations().get(ghostIndex); //minha posição
+	    double minDistance = Double.POSITIVE_INFINITY; //variavel de comparacao
+	    Location myLoc = state.getGhostLocations().get(ghostIndex); //minha posicao
 	    
-	    //Verifica em qual estado tá para definir o target
+	    //Verifica em qual estado ta para definir o target
 		if(stateMachine.getCurrentState() == hunt) {
 			stateMachine.update();
 			target = hunt.getTarget();
@@ -58,9 +58,9 @@ public class DelayedGhost extends GhostPlayer{
 			target = scatter.getTarget();
 		}
 		
-		//foreach pelos movimentos possíveis
+		//foreach pelos movimentos possiveis
 		for (Move m : legalMoves) {
-		      Location nextLoc = Game.getNextLocation(myLoc, m); //escolhe o proximo local a partir da localização e movimentos possiveis
+		      Location nextLoc = Game.getNextLocation(myLoc, m); //escolhe o proximo local a partir da localizacao e movimentos possiveis
 		      double distance = Location.euclideanDistance(nextLoc, target); //calcula a distancia entre o local acima e o alvo
 		      if (distance < minDistance) { //se for a menor, seta o movimento como melhor
 		        minDistance = distance;

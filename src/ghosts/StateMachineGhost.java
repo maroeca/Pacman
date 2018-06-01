@@ -36,7 +36,7 @@ public class StateMachineGhost <NonPlayableCharacter>{
 
     //Invoca este metedo pra atualizar a FSM
     public void update(){
-        //Se existir um estado global, invoca o seu metodo Execute, caso contrario não faz nada
+        //Se existir um estado global, invoca o seu metodo Execute, caso contrario nao faz nada
         if(estadoGlobal != null){
             estadoGlobal.Execute(myOwner);
         }
@@ -52,13 +52,13 @@ public class StateMachineGhost <NonPlayableCharacter>{
         //Armazena o estado anterior
         estadoAnterior = estadoAtual;
 
-        //Invoca o método de saida do estado atual
+        //Invoca o metodo de saida do estado atual
         estadoAtual.Exit(myOwner);
 
         //Faz a troca de estados
         estadoAtual = novoEstado;
 
-        //Invoca o método de Entrada do novo estado
+        //Invoca o metodo de Entrada do novo estado
         estadoAtual.Enter(myOwner);
     }
 
@@ -80,7 +80,7 @@ public class StateMachineGhost <NonPlayableCharacter>{
     }
 
     public boolean handleMessage(Message msg) {
-        //Verifica se o estado atual é capaz de lidar com a mensagem recebida
+        //Verifica se o estado atual e capaz de lidar com a mensagem recebida
         if (estadoAtual != null && estadoAtual.onMessage(myOwner, msg)) {
             return true;
         }

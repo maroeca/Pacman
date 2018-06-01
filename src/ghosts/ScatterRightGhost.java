@@ -42,7 +42,7 @@ public class ScatterRightGhost implements GhostState<RightGhost>{
 		for(Move m: legalMoves) { //varre a lista de movimentos validos e se for possivel virar para a direita o faz
 			if(m == Move.RIGHT) {
 				bestMove = m;
-			}else { //senão escolhe um random
+			}else { //senao escolhe um random
 				bestMove = legalMoves.get(rand.nextInt(legalMoves.size()));
 			}
 		}

@@ -37,19 +37,19 @@ public class ScatterDelayedGhost implements GhostState<DelayedGhost>{
 	@Override
 	public void Execute(DelayedGhost npc) {
 		double minDistance = Double.NEGATIVE_INFINITY;
-		State s = game.getCurrentState(); //pega o estado atual para ter acesso as posições
+		State s = game.getCurrentState(); //pega o estado atual para ter acesso as posicoes
 		
 		Random rand = new Random();
 		
-		List<Location> allLoc =  new ArrayList<Location>(s.getDotLocations()); //uma list com todas as localizações dos pontos
-		//foreach pela lista das posições dos pontos
+		List<Location> allLoc =  new ArrayList<Location>(s.getDotLocations()); //uma list com todas as localizacoes dos pontos
+		//foreach pela lista das posicoes dos pontos
 		for(Location loc: allLoc) {
-			double distance = Location.euclideanDistance(loc, s.getPacManLocation()); //calcula a distancia entre cada ponto e a posição do pacboy
+			double distance = Location.euclideanDistance(loc, s.getPacManLocation()); //calcula a distancia entre cada ponto e a posicao do pacboy
 			if(distance > minDistance) { //escolhe o ponto mais distante do pacboy
 				target = loc;
 				minDistance = distance;
 				//System.out.println(target + " "+ s.getPacManLocation());
-			}else { //senão pega um ponto random
+			}else { //senao pega um ponto random
 				target = allLoc.get(rand.nextInt(allLoc.size()));
 			}
 		}	

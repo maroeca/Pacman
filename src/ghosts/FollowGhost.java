@@ -45,12 +45,12 @@ public class FollowGhost extends GhostPlayer{
 		State state = game.getCurrentState(); //Estado atual do jogo
 		List<Move> legalMoves = game.getLegalGhostMoves(ghostIndex); //movimentos possiveis
 		Move bestMove = null; //melhor escolha
-	    double minDistance = Double.POSITIVE_INFINITY; //variavel de comparação
-	    Location myLoc = state.getGhostLocations().get(ghostIndex); //minha posição
+	    double minDistance = Double.POSITIVE_INFINITY; //variavel de comparacao
+	    Location myLoc = state.getGhostLocations().get(ghostIndex); //minha posicao
 	    
-	  //foreach pelos movimentos possíveis
+	  //foreach pelos movimentos possiveis
 	  	for (Move m : legalMoves) {
-	  	 Location nextLoc = Game.getNextLocation(myLoc, m); //escolhe o proximo local a partir da localização e movimentos possiveis
+	  	 Location nextLoc = Game.getNextLocation(myLoc, m); //escolhe o proximo local a partir da localizacao e movimentos possiveis
 	  	 double distance = Location.euclideanDistance(nextLoc, target); //calcula a distancia entre o local acima e o alvo
 	  	 if (distance < minDistance) { //se for a menor, seta o movimento como melhor
 	  		 minDistance = distance;

@@ -37,7 +37,7 @@ public class HuntDelayedGhost implements GhostState<DelayedGhost>{
 		String[] names; //array de string que recebe o split
 		for (int i = 0; i < game.getGhostPlayers().size(); i++) {
 			names = game.getGhostPlayers().get(i).getName().split(Pattern.quote(".")); //divide o game em dois onde tem ponto
-			if(names[1].compareTo("MirrorGhost") == 0) { //verifica se a segunda parte do nome é igual ao nome do ghost
+			if(names[1].compareTo("MirrorGhost") == 0) { //verifica se a segunda parte do nome e igual ao nome do ghost
 				ghostReceiver = game.getGhostPlayers().get(i); //se for o ghostReceiver recebe o ghost
 			}
 		}
@@ -53,9 +53,9 @@ public class HuntDelayedGhost implements GhostState<DelayedGhost>{
 		State s = game.getCurrentState();
 		List<State> history = s.getHistory(); //pega os estados anteriores
 		if(history.size() >= 2) {
-			pacmanLoc = history.get(history.size() - 2).getPacManLocation(); //pega a posição do pacman no penultimo estado
+			pacmanLoc = history.get(history.size() - 2).getPacManLocation(); //pega a posicao do pacman no penultimo estado
 			
-		}else { //caso seja o começo do jogo, pega a posição atual do pacboy
+		}else { //caso seja o comeco do jogo, pega a posicao atual do pacboy
 			pacmanLoc = s.getPacManLocation();
 		}
 		

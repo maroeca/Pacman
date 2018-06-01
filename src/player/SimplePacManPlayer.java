@@ -28,38 +28,38 @@ public class SimplePacManPlayer implements PacManPlayer {
 	//Obtem o estado atual do jogo:  
     State s = game.getCurrentState();
     
-    //Obtem a lista de movimentos possíveis e válidos:
+    //Obtem a lista de movimentos possiveis e validos:
     List<Move> legalMoves = game.getLegalPacManMoves(); 
     
     //Cria um vetor de objetos do tipo Counter:
     Counter<Move> scores = new Counter<Move>(); 
     
-    //Utiliza um Iterator para percorrer a lista de movimentos possíveis e válidos:
+    //Utiliza um Iterator para percorrer a lista de movimentos possiveis e validos:
     for (Move m : legalMoves) {
       
-      //Obtém uma lista de estados considerando que o pacman siga por um
-      //determinado movimento até encontrar uma nova interseção. 
+      //Obtem uma lista de estados considerando que o pacman siga por um
+      //determinado movimento ate encontrar uma nova intersecao.
       List<State> stateList = Game.getProjectedStates(s, m); 
       
-      //Obtém o último estado da lista do caminho projetado:
+      //Obtem o ultimo estado da lista do caminho projetado:
       State last = stateList.get(stateList.size() - 1);
       
-      //Obtém uma avaliação heurística do último estado da lista do caminho projetado:
+      //Obtem uma avaliacao heuristica do ultimo estado da lista do caminho projetado:
       double stateScore = evaluateState(s, last);
 
       //Adiciona uma penalidade para evitar que o pacman volte pelo caminho que veio.
       double turnaroundPenalty = (lastMove == m.getOpposite() ? -10.0 : 0.0);
       
-      //Adiciona ao Counter o último estado e sua respectiva avaliação. 
+      //Adiciona ao Counter o ultimo estado e sua respectiva avaliacao.
       scores.setCount(m, stateScore + turnaroundPenalty); 
       
     }
     
-    //Utiliza uma função "soft-max" para normalizar os valores:
+    //Utiliza uma funcao "soft-max" para normalizar os valores:
     scores = scores.exp().normalize(); 
     Move move = scores.sampleFromDistribution(random); 
     
-    //Armazena o último movimento feito:
+    //Armazena o ultimo movimento feito:
     lastMove = move; 
     
     return move;

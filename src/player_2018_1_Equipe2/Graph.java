@@ -11,7 +11,7 @@ import pacman.Move;
 //o uso na busca de profundidade limitada
 
 public class Graph {
-	//Lista com os nós pais
+	//Lista com os nao pais
 	List<Node> mainNodes = new ArrayList<Node>();
 	
 	//adiciona os primeiros movimentos quando criado

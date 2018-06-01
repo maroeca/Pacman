@@ -5,7 +5,7 @@ import java.util.List;
 
 import pacman.Move;
 
-//Cada Node é um Move
+//Cada Node e um Move
 
 public class Node {
 	Move mainNode;

@@ -19,7 +19,7 @@ public abstract class GhostPlayer {
 
   private Color color = Color.PINK;
   private String name =  "";
-  protected StateMachineGhost stateMachine; //declaração da stateMachine usada por todos
+  protected StateMachineGhost stateMachine; //declaracao da stateMachine usada por todos
   private Move lastMove;
 	
   public abstract Move chooseMove(Game game, int ghostIndex);

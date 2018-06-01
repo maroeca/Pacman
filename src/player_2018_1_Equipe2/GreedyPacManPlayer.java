@@ -98,8 +98,8 @@ public class GreedyPacManPlayer extends DFSPacManPlayer {
 
 		//distancia media do fantasma mais perto do pacman para os outros fantasmas
 		score -= getMedDistance(closestGhost, state.getGhostLocations());
-		System.out.println("medDistance " + getMedDistance(closestGhost, state.getGhostLocations()));
-		System.out.println("score: " + score);
+		//System.out.println("medDistance " + getMedDistance(closestGhost, state.getGhostLocations()));
+		//System.out.println("score: " + score);
 
 		//Distancia do pacman para o fantasma mais perto
 		score += Location.manhattanDistanceToClosest(pacManLoc, state.getGhostLocations()) *1.5;
@@ -120,9 +120,12 @@ public class GreedyPacManPlayer extends DFSPacManPlayer {
 	private double getMedDirectionGhostsToPacman(Location source, List<Move> moves, List <Location> targets) {
 		double localScore = 0.0;
 
+
+
 		for(int i = 0; i < moves.size(); i++) {
 			if (isMovingTorwardsPacmanHorizontaly(targets.get(i), source, moves.get(i))) {
 				//TODO: balancear esse valor
+				//update: acho que ta balanceado
 				localScore -= 2.0;
 			} else {
 				localScore += 2.0;
