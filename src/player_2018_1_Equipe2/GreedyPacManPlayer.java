@@ -49,12 +49,12 @@ public class GreedyPacManPlayer extends DFSPacManPlayer {
 			//retorna o movimento com melhor score
 			if((stateScore + cantTurnBack) > lastScore) {
 				lastScore = stateScore + cantTurnBack;
-				System.out.println(lastScore);
+				//System.out.println(lastScore);
 				bestMove = move;
 			}else //caso o score seja igual randomiza o move entre os possiveis
 				if((stateScore + cantTurnBack) == lastScore) {
 					bestMove = lastMove; //legalMoves.get(random.nextInt(legalMoves.size()));
-					System.out.println("Randomizou");
+					//System.out.println("Randomizou");
 				}
 
 		}
@@ -110,8 +110,13 @@ public class GreedyPacManPlayer extends DFSPacManPlayer {
 		//Quantidade de pontos em jogo
 		score -= state.getDotLocations().size();
 
-		//Direçao dos fantasmas em relaçao ao pacman
-		score += getMedDirectionGhostsToPacman(pacManLoc, state.getPreviousGhostMoves(), state.getGhostLocations());
+		try {
+			//Direçao dos fantasmas em relaçao ao pacman
+			score += getMedDirectionGhostsToPacman(pacManLoc, state.getPreviousGhostMoves(), state.getGhostLocations());
+		} catch(Exception e) {
+			System.err.println("Histórico vazio dos movimentos do ghost. Primeira movimenentacao necessaria.");
+		}
+
 
 		return score;
 
@@ -119,8 +124,6 @@ public class GreedyPacManPlayer extends DFSPacManPlayer {
 
 	private double getMedDirectionGhostsToPacman(Location source, List<Move> moves, List <Location> targets) {
 		double localScore = 0.0;
-
-
 
 		for(int i = 0; i < moves.size(); i++) {
 			if (isMovingTorwardsPacmanHorizontaly(targets.get(i), source, moves.get(i))) {
