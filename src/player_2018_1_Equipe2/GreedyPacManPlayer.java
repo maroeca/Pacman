@@ -8,11 +8,8 @@ import java.util.Random;
 import pacman.Game;
 import pacman.Location;
 import pacman.Move;
-import pacman.PacManPlayer;
 import pacman.State;
-import pacman.StateEvaluator;
 import player.DFSPacManPlayer;
-import util.Counter;
 
 public class GreedyPacManPlayer extends DFSPacManPlayer {
 
@@ -71,12 +68,13 @@ public class GreedyPacManPlayer extends DFSPacManPlayer {
 	 * 5- Distancia media entre os fantasmas (Mylla)
 	 * 6- Distanca do pacman para o ponto mais próximo
 	 * 7- Distancia média entre o ponto mais perto do pacman em realção aos outros pontos
-	 * 8-
+	 * 8- Direcao e localizacao dos ghosts em relacao ao pacman
+	 * 9- Multiplicador de risco de acordo com quantas vidas tem o pacman
 	 */
 	@Override
 	public double evaluateState(State state) {
 		//Verifica se o proximo estado vai fazer o pacman perder
-		if (Game.isLosing(state))
+		if (Game.isFinal(state))
 			return -1000.0;
 		//Verifica se no proximo estado ganharia o jogo
 		if (Game.isWinning(state))
@@ -110,15 +108,34 @@ public class GreedyPacManPlayer extends DFSPacManPlayer {
 		//Quantidade de pontos em jogo
 		score -= state.getDotLocations().size();
 
+		//Direçao dos fantasmas em relaçao ao pacman
 		try {
-			//Direçao dos fantasmas em relaçao ao pacman
 			score += getMedDirectionGhostsToPacman(pacManLoc, state.getPreviousGhostMoves(), state.getGhostLocations());
 		} catch(Exception e) {
 			System.err.println("Histórico vazio dos movimentos do ghost. Primeira movimenentacao necessaria.");
 		}
 
+		
 
 		return score;
+
+	}
+
+	private double getDistanceMedDotGhost(List<Location> locations, double medDistance, Location pacman, State state) {
+		Location bestDot = locations.get(0);
+		double bestDist = Double.POSITIVE_INFINITY; //menor diferença entre a distancia media do ponto, i.e. o ponto "mais na media"
+
+		for (Location l: locations) {
+			double dist = Location.manhattanDistance(l, pacman);
+			if ((Math.abs(dist - medDistance)) < bestDist) {
+				bestDist = dist;
+				bestDot = l;
+			}
+		}
+
+		Location closestGhost = getClosest(bestDot, state.getGhostLocations());
+
+		return Location.manhattanDistance(bestDot, closestGhost);
 
 	}
 
@@ -126,12 +143,12 @@ public class GreedyPacManPlayer extends DFSPacManPlayer {
 		double localScore = 0.0;
 
 		for(int i = 0; i < moves.size(); i++) {
-			if (isMovingTorwardsPacmanHorizontaly(targets.get(i), source, moves.get(i))) {
+			if (isMovingTorwardsPacmanHorizontally(targets.get(i), source, moves.get(i))) {
 				//TODO: balancear esse valor
 				//update: acho que ta balanceado
-				localScore -= 2.0;
+				localScore -= 1.5;
 			} else {
-				localScore += 2.0;
+				localScore += 1.5;
 			}
 
 		}
@@ -139,26 +156,26 @@ public class GreedyPacManPlayer extends DFSPacManPlayer {
 		return localScore;
 	}
 
-	private boolean isMovingTorwardsPacmanHorizontaly(Location ghost, Location pacman, Move ghostMove) {
+	private boolean isMovingTorwardsPacmanHorizontally(Location ghost, Location pacman, Move ghostMove) {
 		if (ghost.getX() < pacman.getX()) { //está a esquerda do pacman
 			if (ghostMove == Move.RIGHT)
 				return true;
 			else
-				return isMovingTorwardsPacmanVerticaly(ghost, pacman, ghostMove);
+				return isMovingTorwardsPacmanVertically(ghost, pacman, ghostMove);
 
 		} else if (ghost.getX() > pacman.getX()) { //está à direita do pacman
 			if (ghostMove == Move.LEFT)
 				return true;
 			else
-				return isMovingTorwardsPacmanVerticaly(ghost, pacman, ghostMove);
+				return isMovingTorwardsPacmanVertically(ghost, pacman, ghostMove);
 
 		} else {
-			return isMovingTorwardsPacmanVerticaly(ghost, pacman, ghostMove);
+			return isMovingTorwardsPacmanVertically(ghost, pacman, ghostMove);
 
 		}
 	}
 
-	private boolean isMovingTorwardsPacmanVerticaly(Location ghost, Location pacman, Move ghostMove) {
+	private boolean isMovingTorwardsPacmanVertically(Location ghost, Location pacman, Move ghostMove) {
 		if (ghost.getY() < pacman.getY()) { //está acima do pacman
 			if (ghostMove == Move.DOWN)
 				return true;
