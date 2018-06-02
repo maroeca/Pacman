@@ -14,7 +14,11 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 	private Move lastMove = null; //vai ser usado para evitar o retorno
 	private Move bestMove = null;
 	private Random random = new Random();
-	
+
+	private Node startState;
+	private Node currentState;
+
+
 	@Override
 	public Move chooseMove(Game game) {
 		
@@ -88,7 +92,23 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 		return closest;
 	}
 	
-	public Move buscaProfundidade(int level, State state) {
+	public Move breadthFirstSearch(State state, Game game, int limit) {
+
+		//Primeiro destrincha os possiveis estados
+//		//Talvez precise mudar de lugar essa verificacao
+//		if (startState == null) {
+//			startState = new Node(game.getCurrentState());
+//			currentState = startState;
+//		}
+
+		Graph graph = new Graph(game);
+
+
+
+
+
+
+
 		Move bestMove = null;
 		
 		
