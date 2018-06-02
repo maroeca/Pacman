@@ -16,12 +16,14 @@ public class GreedyPacManPlayer extends DFSPacManPlayer {
 	private Move lastMove = null; //vai ser usado para evitar o retorno
 	private Move bestMove = null;
 	private Random random = new Random();
-
+    private int lives;
+    Location target = null;
 
 	@Override
 	public Move chooseMove(Game game) {
 		//estado atual
 		State s = game.getCurrentState();
+		lives = game.getLives();
 
 		//Movimentos possiveis do pacman
 		List<Move> legalMoves = game.getLegalPacManMoves();
@@ -37,10 +39,10 @@ public class GreedyPacManPlayer extends DFSPacManPlayer {
 			State nextState = Game.getNextState(s, move);
 
 			//calcula o score a aplicando as heuristicas
-			double stateScore = evaluateState(nextState);
+			double stateScore = evaluateState(nextState, s);
 
 			//verificação pra n voltar o movimento(ta igual do simplepacman, melhor mudar)
-			double cantTurnBack = (lastMove == move.getOpposite() ? -10.0 : 0.0);
+			double cantTurnBack = (lastMove == move.getOpposite() ? -100.0 : 0.0);
 			//System.out.println(stateScore + cantTurnBack + " "+ move);
 
 			//retorna o movimento com melhor score
@@ -50,7 +52,8 @@ public class GreedyPacManPlayer extends DFSPacManPlayer {
 				bestMove = move;
 			}else //caso o score seja igual randomiza o move entre os possiveis
 				if((stateScore + cantTurnBack) == lastScore) {
-					bestMove = lastMove; //legalMoves.get(random.nextInt(legalMoves.size()));
+			        //Move opt = legalMoves.get(random.nextInt(legalMoves.size()));
+					bestMove = lastMove; //(opt == move.getOpposite() ? lastMove : opt);
 					//System.out.println("Randomizou");
 				}
 
@@ -71,20 +74,29 @@ public class GreedyPacManPlayer extends DFSPacManPlayer {
 	 * 8- Direcao e localizacao dos ghosts em relacao ao pacman
 	 * 9- Multiplicador de risco de acordo com quantas vidas tem o pacman
 	 */
-	@Override
-	public double evaluateState(State state) {
+
+	public double evaluateState(State state, State oldState) {
 		//Verifica se o proximo estado vai fazer o pacman perder
-		if (Game.isFinal(state))
+		if (Game.isLosing(state))
 			return -1000.0;
 		//Verifica se no proximo estado ganharia o jogo
 		if (Game.isWinning(state))
-			return 10.0;
+			return 0.0;
 
 		double score = 0.0;
+		int riscMultiplier;
+
+		if(lives > 1){
+		    riscMultiplier = 2;
+        }else{
+		    riscMultiplier = 1;
+        }
 
 		//loc do pacman no proximo state
 		Location pacManLoc = state.getPacManLocation();
 		Location closestDot = getClosest(pacManLoc, state.getDotLocations());
+
+
 
 		//Distancia media entre o ponto mais perto do pacman e os outros pontos
 		score -= getMedDistance(closestDot, state.getDotLocations());
@@ -94,13 +106,20 @@ public class GreedyPacManPlayer extends DFSPacManPlayer {
 
 		Location closestGhost = getClosest(pacManLoc, state.getGhostLocations());
 
+		//preferencia para pegar pontos
+		if(state.getDotLocations().size() < oldState.getDotLocations().size()){
+		    score += 500 * riscMultiplier;
+		    System.out.println("Foi");
+        }
+
+
 		//distancia media do fantasma mais perto do pacman para os outros fantasmas
 		score -= getMedDistance(closestGhost, state.getGhostLocations());
 		//System.out.println("medDistance " + getMedDistance(closestGhost, state.getGhostLocations()));
 		//System.out.println("score: " + score);
 
 		//Distancia do pacman para o fantasma mais perto
-		score += Location.manhattanDistanceToClosest(pacManLoc, state.getGhostLocations()) *1.5;
+		score += Location.manhattanDistanceToClosest(pacManLoc, state.getGhostLocations()) *1.3;
 
 		//distancia do pacman para o ponto mais perto
 		score -= Location.manhattanDistance(pacManLoc, closestDot);
@@ -116,7 +135,7 @@ public class GreedyPacManPlayer extends DFSPacManPlayer {
 		}
 
 		
-
+        //System.out.println("Score: " + score);
 		return score;
 
 	}
@@ -152,7 +171,6 @@ public class GreedyPacManPlayer extends DFSPacManPlayer {
 			}
 
 		}
-
 		return localScore;
 	}
 
