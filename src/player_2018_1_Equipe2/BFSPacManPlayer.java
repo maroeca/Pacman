@@ -106,7 +106,7 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 				double aux = evaluateState(n.getState()); //e aplica heuritica no state
 
 				if (aux >= bestValue) { //se o estado tiver uma heuristica melhor que o armazenado, troca
-					aux = bestValue;
+					bestValue = aux;
 					bestNode = n;
 				}
 			}

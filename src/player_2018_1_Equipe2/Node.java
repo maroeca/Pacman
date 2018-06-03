@@ -5,7 +5,6 @@ import java.util.List;
 import pacman.*;
 import pacman.State;
 
-//Cada Node e um Move
 
 public class Node {
 	private Node parentNode;
@@ -52,11 +51,5 @@ public class Node {
 	public Move getMove() {
 		return this.move;
 	}
-//	public void addChild(List<Move> pacManMoves) {
-//		for (Move move : pacManMoves) {
-//			children.add(move);
-//		}
-//		//talvez assim seja melhor
-//		//children = pacManMoves;
-//	}
+
 }
