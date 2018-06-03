@@ -17,6 +17,7 @@ public class Node {
 	Node(State state, Move move, int depth){
 		this.state = state;
 		this.depth = depth;
+		this.move = move;
 	}
 
 	public void addChild(Node c) {
