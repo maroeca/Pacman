@@ -113,9 +113,9 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 		}
 
 
-		Node nextNode = graph.getParentNode(bestNode);
-		Move move = nextNode.getMove();
+		Node nextNode = graph.getParentNode(bestNode); //pega o node pai do bestNode, pois é o proximo estado do estado atual
+		Move move = nextNode.getMove(); //pega o movimento do nextNode
 
-		return move;
+		return move; //retorno o move
 	}
 }
