@@ -40,7 +40,8 @@ public class Graph {
 
 		for(Move m: moves) {
 			//System.out.println(Game.projectPacManLocation(node.getState(), m, 1));
-			State s = Game.projectPacManLocation(node.getState(), m, 1).get(0);	//Pega o primeiro estado do movimento realizado
+			//State s = Game.projectPacManLocation(node.getState(), m, 1).get(0);	//Pega o primeiro estado do movimento realizado
+			State s = Game.getNextState(node.getState(), m);
 			addNode(s, node, m, depth);	//cria um nó novo e adiciona como filho do nó recebido como argumento
 		}
 
