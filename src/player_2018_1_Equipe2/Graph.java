@@ -24,7 +24,7 @@ public class Graph {
 
 		nodes = new ArrayList<Node>();
 		nodes.add(startNode);
-		getAllPossibleStates(startNode, 0);
+		getAllPossibleStates(startNode, 1);
 	}
 
 	private void getAllPossibleStates(Node node, int depth) {
@@ -45,13 +45,17 @@ public class Graph {
 		}
 
 		for(Node child: node.getChildren()) {
-			getAllPossibleStates(child, depth++);	//recursividade, vai repetir os passos acima com todos os filhos
+			getAllPossibleStates(child, depth + 1);	//recursividade, vai repetir os passos acima com todos os filhos
 		}
 	}
 
 	private void addNode(State newState, Node parent, int depth) {
 		Node newNode = new Node(newState, depth);
 		parent.addChild(newNode);
+
+		if (parent.getDepth() != 0)
+			newNode.addParent(parent); //apenas pra facilitar a busca do nó pai, pois o nó inicial (0) é o estado atual do jogo de qualquer maneira. Entao nao sera utilizado mesmo
+
 		nodes.add(newNode);
 	}
 

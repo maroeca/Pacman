@@ -20,15 +20,14 @@ public class Node {
 
 	public void addChild(Node c) {
 		children.add(c);
-		if (this.depth != 0)
-			c.addParent(this);
+
 	}
 
 	public List<Node> getChildren()	{
 		return children;
 	}
 
-	private void addParent(Node p) {
+	public void addParent(Node p) {
 		this.parentNode = p;
 	}
 

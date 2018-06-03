@@ -111,7 +111,7 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 		}
 
 
-		Node nextNode = bestNode.getParentNode();
+		Node nextNode = graph.getParentNode(bestNode);
 		System.out.println(nextNode);
 		Move move = Game.getLegalPacManMoves(nextNode.getState()).get(0);
 
