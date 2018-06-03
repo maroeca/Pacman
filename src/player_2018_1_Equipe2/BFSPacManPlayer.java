@@ -23,6 +23,8 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 		
 		this.bestMove = breadthFirstSearch(game.getCurrentState(), game);
 		lastMove = bestMove;
+
+		System.out.println(bestMove);
 		return bestMove;
 	}
 
@@ -112,7 +114,6 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 
 
 		Node nextNode = graph.getParentNode(bestNode);
-		System.out.println(nextNode);
 		Move move = Game.getLegalPacManMoves(nextNode.getState()).get(0);
 
 		return move;

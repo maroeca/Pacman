@@ -33,25 +33,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Graph.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Graph.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/player_2018_1_Equipe2/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-798">
-              <caret line="26" column="41" lean-forward="false" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
+            <state relative-caret-position="238">
+              <caret line="89" column="25" lean-forward="false" selection-start-line="89" selection-start-column="25" selection-end-line="89" selection-end-column="25" />
               <folding>
                 <element signature="method#addNode#0;class#Graph#0" expanded="false" />
                 <element signature="e#1900#1906#0" expanded="true" />
-                <marker date="1527999187582" expanded="false" signature="2464:2470" ph="&lt;~&gt;" />
+                <marker date="1527999938121" expanded="false" signature="2477:2483" ph="&lt;~&gt;" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BFSPacManPlayer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BFSPacManPlayer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/player_2018_1_Equipe2/BFSPacManPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="553">
-              <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+            <state relative-caret-position="158">
+              <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#evaluateState#0;class#BFSPacManPlayer#0" expanded="false" />
@@ -153,8 +153,8 @@
         <option value="$PROJECT_DIR$/src/ghosts/HuntBlindGhost.java" />
         <option value="$PROJECT_DIR$/src/player_2018_1_Equipe2/GreedyPacManPlayer.java" />
         <option value="$PROJECT_DIR$/src/player_2018_1_Equipe2/Node.java" />
-        <option value="$PROJECT_DIR$/src/player_2018_1_Equipe2/Graph.java" />
         <option value="$PROJECT_DIR$/src/player_2018_1_Equipe2/BFSPacManPlayer.java" />
+        <option value="$PROJECT_DIR$/src/player_2018_1_Equipe2/Graph.java" />
       </list>
     </option>
   </component>
@@ -360,7 +360,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5021482" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07762557" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30479452" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.49785176" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.49785176" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -413,17 +413,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/player_2018_1_Equipe2/Graph.java</url>
-          <line>81</line>
-          <properties class="player_2018_1_Equipe2.Graph" method="getParentNode">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="10" />
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -458,7 +448,7 @@
           <folding>
             <element signature="method#addNode#0;class#Graph#0" expanded="false" />
             <element signature="e#1900#1906#0" expanded="true" />
-            <marker date="1527999187582" expanded="false" signature="2464:2470" ph="&lt;~&gt;" />
+            <marker date="1527999938121" expanded="false" signature="2477:2483" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -576,7 +566,7 @@
           <folding>
             <element signature="method#addNode#0;class#Graph#0" expanded="false" />
             <element signature="e#1900#1906#0" expanded="true" />
-            <marker date="1527999187582" expanded="false" signature="2464:2470" ph="&lt;~&gt;" />
+            <marker date="1527999938121" expanded="false" signature="2477:2483" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -607,7 +597,7 @@
           <folding>
             <element signature="method#addNode#0;class#Graph#0" expanded="false" />
             <element signature="e#1900#1906#0" expanded="true" />
-            <marker date="1527999187582" expanded="false" signature="2464:2470" ph="&lt;~&gt;" />
+            <marker date="1527999938121" expanded="false" signature="2477:2483" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -834,18 +824,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/player_2018_1_Equipe2/Graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-798">
-          <caret line="26" column="41" lean-forward="false" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
-          <folding>
-            <element signature="method#addNode#0;class#Graph#0" expanded="false" />
-            <element signature="e#1900#1906#0" expanded="true" />
-            <marker date="1527999187582" expanded="false" signature="2464:2470" ph="&lt;~&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/player_2018_1_Equipe2/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
@@ -867,13 +845,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/player_2018_1_Equipe2/BFSPacManPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+        <state relative-caret-position="158">
+          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#evaluateState#0;class#BFSPacManPlayer#0" expanded="false" />
             <element signature="method#getMedDistance#0;class#BFSPacManPlayer#0" expanded="false" />
             <element signature="method#getClosest#0;class#BFSPacManPlayer#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/player_2018_1_Equipe2/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="89" column="25" lean-forward="false" selection-start-line="89" selection-start-column="25" selection-end-line="89" selection-end-column="25" />
+          <folding>
+            <element signature="method#addNode#0;class#Graph#0" expanded="false" />
+            <element signature="e#1900#1906#0" expanded="true" />
+            <marker date="1527999938121" expanded="false" signature="2477:2483" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>

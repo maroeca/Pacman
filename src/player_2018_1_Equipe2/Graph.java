@@ -16,7 +16,7 @@ public class Graph {
 	private Node startNode;
 	private ArrayList<Node> nodes;
 
-	public int limitDepth = 2;
+	public int limitDepth = 4;
 
 
 	Graph (Game game) {
@@ -81,16 +81,17 @@ public class Graph {
 
 	public Node getParentNode(Node childNode) {
 		Node parent = childNode.getParentNode();
+		Node aux = parent;
 
 		if(parent == null)
 			return childNode;
 
 		while(parent != null) {
-			Node aux = parent;
+			aux = parent;
 			parent = aux.getParentNode();
 		}
 
-		return parent;
+		return aux;
 	}
 
 
