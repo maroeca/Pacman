@@ -13,18 +13,17 @@ import pacman.State;
 //o uso na busca de profundidade limitada
 
 public class Graph {
-	Node startNode;
-//	Node currentNode;
+	private Node startNode;
+	private ArrayList<Node> nodes;
 
-	int limitDepth = 2;
-	//ArrayList<Node> states;
+	public int limitDepth = 2;
+
 
 	Graph (Game game) {
 		startNode = new Node(game.getCurrentState(), 0);
-		//currentNode = startNode;
 
-		//states = new ArrayList<Node>();
-		//states.add(startState);
+		nodes = new ArrayList<Node>();
+		nodes.add(startNode);
 		getAllPossibleStates(startNode, 0);
 	}
 
@@ -33,15 +32,19 @@ public class Graph {
 			return;
 		}
 
+		List<Move> moves = Game.getLegalPacManMoves(node.getState());	//Pega todos os movimentos possiveis do pacman no estado
 
-		List<Move> moves = Game.getLegalPacManMoves(node.state);	//Pega todos os movimentos possiveis do pacman no estado
-
-		for(Move m: moves) {
-			State s = Game.projectPacManLocation(node.state, m, 1).get(0);	//Pega o primeiro estado do movimento realizado
-			addNode(s, node, depth);	//cria um nó novo e adiciona coomo filho do nó recebido como argumento
+		if (moves.isEmpty()) {
+			return;
 		}
 
-		for(Node child: node.children) {
+		for(Move m: moves) {
+			//System.out.println(Game.projectPacManLocation(node.getState(), m, 1));
+			State s = Game.projectPacManLocation(node.getState(), m, 1).get(0);	//Pega o primeiro estado do movimento realizado
+			addNode(s, node, depth);	//cria um nó novo e adiciona como filho do nó recebido como argumento
+		}
+
+		for(Node child: node.getChildren()) {
 			getAllPossibleStates(child, depth++);	//recursividade, vai repetir os passos acima com todos os filhos
 		}
 	}
@@ -49,8 +52,42 @@ public class Graph {
 	private void addNode(State newState, Node parent, int depth) {
 		Node newNode = new Node(newState, depth);
 		parent.addChild(newNode);
+		nodes.add(newNode);
 	}
-	
+
+	public ArrayList<Node> getNodesOnDepth(int depth) { //busca todos os nos na profundidade desejada
+		try {
+			ArrayList<Node> depthNodes = new ArrayList<Node>();
+
+			for(Node n: this.nodes) {
+				if (n.getDepth() == depth) {
+					depthNodes.add(n);
+				}
+			}
+
+			return depthNodes;
+
+		} catch (Exception e) {
+			if (depth > limitDepth) {
+				System.err.println("Depth too deep");
+			}
+			return null;
+		}
+	}
+
+	public Node getParentNode(Node childNode) {
+		Node parent = childNode.getParentNode();
+
+		if(parent == null)
+			return childNode;
+
+		while(parent != null) {
+			Node aux = parent;
+			parent = aux.getParentNode();
+		}
+
+		return parent;
+	}
 
 
 //	//Lista com os nao pais

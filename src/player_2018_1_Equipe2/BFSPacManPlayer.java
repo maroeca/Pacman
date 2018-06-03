@@ -1,5 +1,6 @@
 package player_2018_1_Equipe2;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 
@@ -15,14 +16,12 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 	private Move bestMove = null;
 	private Random random = new Random();
 
-	private Node startState;
-	private Node currentState;
 
 
 	@Override
 	public Move chooseMove(Game game) {
 		
-		
+		this.bestMove = breadthFirstSearch(game.getCurrentState(), game);
 		lastMove = bestMove;
 		return bestMove;
 	}
@@ -92,26 +91,30 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 		return closest;
 	}
 	
-	public Move breadthFirstSearch(State state, Game game, int limit) {
+	public Move breadthFirstSearch(State state, Game game) {
+		Node bestNode = new Node(state,0);
+		Double bestValue = Double.NEGATIVE_INFINITY;
 
-		//Primeiro destrincha os possiveis estados
-//		//Talvez precise mudar de lugar essa verificacao
-//		if (startState == null) {
-//			startState = new Node(game.getCurrentState());
-//			currentState = startState;
-//		}
+		Graph graph = new Graph(game); //Cria um grafo com o estado atual do jogo
 
-		Graph graph = new Graph(game);
+		for (int d = 0; d < graph.limitDepth; d++) { //Vai pegar um array com todos os nós de uma profundidade (0 a 2)
+			ArrayList<Node> nodes = graph.getNodesOnDepth(d); //Array que vai receber os nós da profundidade d
+
+			for (Node n: nodes) {	//Percorre todos os nós da profundidade
+				double aux = evaluateState(n.getState()); //e aplica heuritica no state
+
+				if (aux >= bestValue) { //se o estado tiver uma heuristica melhor que o armazenado, troca
+					aux = bestValue;
+					bestNode = n;
+				}
+			}
+		}
 
 
+		Node nextNode = bestNode.getParentNode();
+		System.out.println(nextNode);
+		Move move = Game.getLegalPacManMoves(nextNode.getState()).get(0);
 
-
-
-
-
-		Move bestMove = null;
-		
-		
-		return bestMove;
+		return move;
 	}
 }
