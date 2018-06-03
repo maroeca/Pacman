@@ -94,7 +94,7 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 	}
 	
 	public Move breadthFirstSearch(State state, Game game) {
-		Node bestNode = new Node(state,0);
+		Node bestNode = new Node(state, Move.NONE,0);
 		Double bestValue = Double.NEGATIVE_INFINITY;
 
 		Graph graph = new Graph(game); //Cria um grafo com o estado atual do jogo
@@ -114,7 +114,7 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 
 
 		Node nextNode = graph.getParentNode(bestNode);
-		Move move = Game.getLegalPacManMoves(nextNode.getState()).get(0);
+		Move move = nextNode.getMove();
 
 		return move;
 	}

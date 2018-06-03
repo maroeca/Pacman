@@ -11,9 +11,10 @@ public class Node {
 	private Node parentNode;
 	private int depth;
 	private State state;
+	private Move move; //movimento pra chegar no state
 	private List<Node> children = new ArrayList<Node>();
 	
-	Node(State state, int depth){
+	Node(State state, Move move, int depth){
 		this.state = state;
 		this.depth = depth;
 	}
@@ -43,6 +44,13 @@ public class Node {
 		return depth;
 	}
 
+	public void setMove(Move move) {
+		this.move = move;
+	}
+
+	public Move getMove() {
+		return this.move;
+	}
 //	public void addChild(List<Move> pacManMoves) {
 //		for (Move move : pacManMoves) {
 //			children.add(move);

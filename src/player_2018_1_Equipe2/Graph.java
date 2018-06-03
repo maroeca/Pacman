@@ -20,7 +20,7 @@ public class Graph {
 
 
 	Graph (Game game) {
-		startNode = new Node(game.getCurrentState(), 0);
+		startNode = new Node(game.getCurrentState(), Move.NONE, 0);
 
 		nodes = new ArrayList<Node>();
 		nodes.add(startNode);
@@ -41,7 +41,7 @@ public class Graph {
 		for(Move m: moves) {
 			//System.out.println(Game.projectPacManLocation(node.getState(), m, 1));
 			State s = Game.projectPacManLocation(node.getState(), m, 1).get(0);	//Pega o primeiro estado do movimento realizado
-			addNode(s, node, depth);	//cria um nó novo e adiciona como filho do nó recebido como argumento
+			addNode(s, node, m, depth);	//cria um nó novo e adiciona como filho do nó recebido como argumento
 		}
 
 		for(Node child: node.getChildren()) {
@@ -49,8 +49,8 @@ public class Graph {
 		}
 	}
 
-	private void addNode(State newState, Node parent, int depth) {
-		Node newNode = new Node(newState, depth);
+	private void addNode(State newState, Node parent, Move move, int depth) {
+		Node newNode = new Node(newState, move, depth);
 		parent.addChild(newNode);
 
 		if (parent.getDepth() != 0)
