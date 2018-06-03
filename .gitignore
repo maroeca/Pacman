@@ -3,3 +3,4 @@
 .metadata/.plugins/org.eclipse.jdt.core/index.db
 .metadata/.lock
 *.xml
+out/*
