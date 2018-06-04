@@ -3,15 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="efe09c4d-2c9f-4d7a-96f7-c2c2b5382dce" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pacman/ghosts/MirrorGhost$1.class" afterPath="$PROJECT_DIR$/out/production/Pacman/ghosts/MirrorGhost$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pacman/pacman/Game$1.class" afterPath="$PROJECT_DIR$/out/production/Pacman/pacman/Game$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pacman/pacman/PacManGUIGameBoard$1.class" afterPath="$PROJECT_DIR$/out/production/Pacman/pacman/PacManGUIGameBoard$1.class" />
       <change beforePath="$PROJECT_DIR$/out/production/Pacman/player_2018_1_Equipe2/BFSPacManPlayer.class" afterPath="$PROJECT_DIR$/out/production/Pacman/player_2018_1_Equipe2/BFSPacManPlayer.class" />
       <change beforePath="$PROJECT_DIR$/out/production/Pacman/player_2018_1_Equipe2/Graph.class" afterPath="$PROJECT_DIR$/out/production/Pacman/player_2018_1_Equipe2/Graph.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pacman/player_2018_1_Equipe2/GreedyPacManPlayer.class" afterPath="$PROJECT_DIR$/out/production/Pacman/player_2018_1_Equipe2/GreedyPacManPlayer.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pacman/player_2018_1_Equipe2/Node.class" afterPath="$PROJECT_DIR$/out/production/Pacman/player_2018_1_Equipe2/Node.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pacman/util/PriorityQueue$1.class" afterPath="$PROJECT_DIR$/out/production/Pacman/util/PriorityQueue$1.class" />
-      <change beforePath="$PROJECT_DIR$/src/player_2018_1_Equipe2/Graph.java" afterPath="$PROJECT_DIR$/src/player_2018_1_Equipe2/Graph.java" />
+      <change beforePath="$PROJECT_DIR$/src/player_2018_1_Equipe2/BFSPacManPlayer.java" afterPath="$PROJECT_DIR$/src/player_2018_1_Equipe2/BFSPacManPlayer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,7 +25,7 @@
       <file leaf-file-name="GreedyPacManPlayer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/player_2018_1_Equipe2/GreedyPacManPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2187">
+            <state relative-caret-position="2938">
               <caret line="174" column="9" lean-forward="false" selection-start-line="174" selection-start-column="9" selection-end-line="174" selection-end-column="9" />
               <folding />
             </state>
@@ -63,23 +57,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Graph.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Graph.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/player_2018_1_Equipe2/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="231">
-              <caret line="45" column="16" lean-forward="false" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
-              <folding />
+              <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+              <folding>
+                <element signature="e#2013#2019#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BFSPacManPlayer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BFSPacManPlayer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/player_2018_1_Equipe2/BFSPacManPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="180" column="0" lean-forward="false" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
+            <state relative-caret-position="552">
+              <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#522#528#0" expanded="true" />
                 <element signature="method#getMedDirectionGhostsToPacman#0;class#BFSPacManPlayer#0" expanded="false" />
                 <element signature="method#isMovingTorwardsPacmanHorizontally#0;class#BFSPacManPlayer#0" expanded="false" />
                 <element signature="method#isMovingTorwardsPacmanVertically#0;class#BFSPacManPlayer#0" expanded="false" />
@@ -93,8 +90,8 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pacman/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14427">
-              <caret line="732" column="0" lean-forward="false" selection-start-line="732" selection-start-column="0" selection-end-line="732" selection-end-column="0" />
+            <state relative-caret-position="168">
+              <caret line="48" column="28" lean-forward="false" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
               <folding>
                 <element signature="e#1989#1990#0" expanded="true" />
                 <element signature="e#2049#2050#0" expanded="true" />
@@ -157,6 +154,7 @@
         <option value="$PROJECT_DIR$/src/ghosts/HuntBlindGhost.java" />
         <option value="$PROJECT_DIR$/src/player_2018_1_Equipe2/GreedyPacManPlayer.java" />
         <option value="$PROJECT_DIR$/src/player_2018_1_Equipe2/Node.java" />
+        <option value="$PROJECT_DIR$/src/pacman/Game.java" />
         <option value="$PROJECT_DIR$/src/player_2018_1_Equipe2/BFSPacManPlayer.java" />
         <option value="$PROJECT_DIR$/src/player_2018_1_Equipe2/Graph.java" />
       </list>
@@ -164,7 +162,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="width" value="1936" />
+    <option name="width" value="1932" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
@@ -393,18 +391,18 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5021482" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42346367" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35083798" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.49785176" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.49785176" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17189133" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54731184" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -425,7 +423,6 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40184757" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -515,7 +512,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1869">
           <caret line="89" column="25" lean-forward="false" selection-start-line="89" selection-start-column="25" selection-end-line="89" selection-end-column="25" />
-          <folding />
+          <folding>
+            <element signature="e#2013#2019#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -546,7 +545,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="924">
           <caret line="51" column="49" lean-forward="true" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
-          <folding />
+          <folding>
+            <element signature="e#2013#2019#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -563,6 +564,7 @@
           <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#522#528#0" expanded="true" />
             <element signature="method#getMedDirectionGhostsToPacman#0;class#BFSPacManPlayer#0" expanded="false" />
             <element signature="method#isMovingTorwardsPacmanHorizontally#0;class#BFSPacManPlayer#0" expanded="false" />
             <element signature="method#isMovingTorwardsPacmanVertically#0;class#BFSPacManPlayer#0" expanded="false" />
@@ -638,6 +640,7 @@
           <caret line="107" column="0" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#522#528#0" expanded="true" />
             <element signature="method#getMedDirectionGhostsToPacman#0;class#BFSPacManPlayer#0" expanded="false" />
             <element signature="method#isMovingTorwardsPacmanHorizontally#0;class#BFSPacManPlayer#0" expanded="false" />
             <element signature="method#isMovingTorwardsPacmanVertically#0;class#BFSPacManPlayer#0" expanded="false" />
@@ -658,7 +661,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="945">
           <caret line="52" column="33" lean-forward="true" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
-          <folding />
+          <folding>
+            <element signature="e#2013#2019#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -689,7 +694,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="819">
           <caret line="39" column="9" lean-forward="true" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
-          <folding />
+          <folding>
+            <element signature="e#2013#2019#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -717,6 +724,7 @@
           <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#522#528#0" expanded="true" />
             <element signature="method#getMedDirectionGhostsToPacman#0;class#BFSPacManPlayer#0" expanded="false" />
             <element signature="method#isMovingTorwardsPacmanHorizontally#0;class#BFSPacManPlayer#0" expanded="false" />
             <element signature="method#isMovingTorwardsPacmanVertically#0;class#BFSPacManPlayer#0" expanded="false" />
@@ -888,26 +896,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/player_2018_1_Equipe2/GreedyPacManPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2187">
-          <caret line="174" column="9" lean-forward="false" selection-start-line="174" selection-start-column="9" selection-end-line="174" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/util/HashMap.java" />
-    <entry file="file://$PROJECT_DIR$/src/pacman/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14427">
-          <caret line="732" column="0" lean-forward="false" selection-start-line="732" selection-start-column="0" selection-end-line="732" selection-end-column="0" />
-          <folding>
-            <element signature="e#1989#1990#0" expanded="true" />
-            <element signature="e#2049#2050#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/player_2018_1_Equipe2/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1071">
@@ -931,17 +920,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/player_2018_1_Equipe2/BFSPacManPlayer.java">
+    <entry file="file://$PROJECT_DIR$/src/player_2018_1_Equipe2/GreedyPacManPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="180" column="0" lean-forward="false" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
+        <state relative-caret-position="2938">
+          <caret line="174" column="9" lean-forward="false" selection-start-line="174" selection-start-column="9" selection-end-line="174" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pacman/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="48" column="28" lean-forward="false" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getMedDirectionGhostsToPacman#0;class#BFSPacManPlayer#0" expanded="false" />
-            <element signature="method#isMovingTorwardsPacmanHorizontally#0;class#BFSPacManPlayer#0" expanded="false" />
-            <element signature="method#isMovingTorwardsPacmanVertically#0;class#BFSPacManPlayer#0" expanded="false" />
-            <element signature="method#getMedDistance#0;class#BFSPacManPlayer#0" expanded="false" />
-            <element signature="method#getClosest#0;class#BFSPacManPlayer#0" expanded="false" />
+            <element signature="e#1989#1990#0" expanded="true" />
+            <element signature="e#2049#2050#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -949,8 +942,26 @@
     <entry file="file://$PROJECT_DIR$/src/player_2018_1_Equipe2/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
-          <caret line="45" column="16" lean-forward="false" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
-          <folding />
+          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding>
+            <element signature="e#2013#2019#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/player_2018_1_Equipe2/BFSPacManPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#522#528#0" expanded="true" />
+            <element signature="method#getMedDirectionGhostsToPacman#0;class#BFSPacManPlayer#0" expanded="false" />
+            <element signature="method#isMovingTorwardsPacmanHorizontally#0;class#BFSPacManPlayer#0" expanded="false" />
+            <element signature="method#isMovingTorwardsPacmanVertically#0;class#BFSPacManPlayer#0" expanded="false" />
+            <element signature="method#getMedDistance#0;class#BFSPacManPlayer#0" expanded="false" />
+            <element signature="method#getClosest#0;class#BFSPacManPlayer#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

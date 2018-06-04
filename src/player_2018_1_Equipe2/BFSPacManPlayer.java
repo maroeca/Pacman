@@ -16,28 +16,38 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 	//private Move lastMove = null; //vai ser usado para evitar o retorno
 	private Move bestMove = null;
 	private Random random = new Random();
+	private int lives;
 
 	private ArrayList<Move> lastMoves = new ArrayList<Move>();
+	private Node lastNode;
 
 
 	@Override
 	public Move chooseMove(Game game) {
-		
+		lives = game.getLives();
 		this.bestMove = breadthFirstSearch(game.getCurrentState(), game);
 		return bestMove;
 	}
 
 	//HEURISTICAS
-	@Override
-	public double evaluateState(State state) {
-		//Verifica se o proximo estado vai fazer o pacman perder
-		if (Game.isFinal(state))
+
+	public double evaluateState(State state, State oldState) {
+		double score = 0.0;
+		int riscMultiplier;
+
+		//Verifica se o proximo estado perderia o jogo
+		if (Game.isLosing(state))
 			return -1000.0;
 		//Verifica se no proximo estado ganharia o jogo
 		if (Game.isWinning(state))
-			return 10.0;
+			return 0.0;
 
-		double score = 0.0;
+
+		if(lives > 1){
+			riscMultiplier = 2;
+		}else{
+			riscMultiplier = 1;
+		}
 
 		//loc do pacman no proximo state
 		Location pacManLoc = state.getPacManLocation();
@@ -51,13 +61,18 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 
 		Location closestGhost = getClosest(pacManLoc, state.getGhostLocations());
 
+		//preferencia para pegar pontos
+		if(state.getDotLocations().size() < oldState.getDotLocations().size()){
+			score += 1000 * riscMultiplier;
+		}
+
 		//distancia media do fantasma mais perto do pacman para os outros fantasmas
 		score -= getMedDistance(closestGhost, state.getGhostLocations());
 		//System.out.println("medDistance " + getMedDistance(closestGhost, state.getGhostLocations()));
 		//System.out.println("score: " + score);
 
 		//Distancia do pacman para o fantasma mais perto
-		score += Location.manhattanDistanceToClosest(pacManLoc, state.getGhostLocations()) *1.5;
+		score += Location.manhattanDistanceToClosest(pacManLoc, state.getGhostLocations()) * 1.23;
 
 		//distancia do pacman para o ponto mais perto
 		score -= Location.manhattanDistance(pacManLoc, closestDot);
@@ -71,7 +86,6 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 		} catch(Exception e) {
 			System.err.println("Histórico vazio dos movimentos do ghost. Primeira movimenentacao necessaria.");
 		}
-
 
 
 		return score;
@@ -162,19 +176,20 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 			ArrayList<Node> nodes = graph.getNodesOnDepth(d); //Array que vai receber os nós da profundidade d
 
 			for (Node n: nodes) {	//Percorre todos os nós da profundidade
-				double aux = evaluateState(n.getState()); //e aplica heuritica no state
+				double aux = evaluateState(n.getState(), nodes.get(nodes.size() - 2).getState()); //e aplica heuritica no state
 
 				if (aux >= bestValue && isNotOnLoop(graph.getParentNode(n).getMove())) { //se o estado tiver uma heuristica melhor que o armazenado, troca
 					bestValue = aux;
 					bestNode = n;
-
 				}
 			}
 		}
 
 
 		Node nextNode = graph.getParentNode(bestNode); //pega o node pai do bestNode, pois é o proximo estado do estado atual
+		lastNode = nextNode;
 		Move move = nextNode.getMove(); //pega o movimento do nextNode
+		System.out.println(bestValue + " " + move);
 		addLastMovement(move);
 		return move; //retorno o move
 	}
