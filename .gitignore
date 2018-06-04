@@ -4,3 +4,4 @@
 .metadata/.lock
 *.xml
 out/*
+.idea/workspace.xml

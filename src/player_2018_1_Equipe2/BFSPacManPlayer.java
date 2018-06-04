@@ -178,7 +178,7 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 			for (Node n: nodes) {	//Percorre todos os nós da profundidade
 				double aux = evaluateState(n.getState(), nodes.get(nodes.size() - 2).getState()); //e aplica heuritica no state
 
-				if (aux >= bestValue && isNotOnLoop(graph.getParentNode(n).getMove())) { //se o estado tiver uma heuristica melhor que o armazenado, troca
+				if (aux > bestValue && isNotOnLoop(graph.getParentNode(n).getMove())) { //se o estado tiver uma heuristica melhor que o armazenado, troca
 					bestValue = aux;
 					bestNode = n;
 				}
