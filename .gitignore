@@ -5,3 +5,6 @@
 *.xml
 out/*
 .idea/workspace.xml
+*.xml
+.idea/misc.xml
+.idea/workspace.xml
