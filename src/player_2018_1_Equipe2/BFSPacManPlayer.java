@@ -20,6 +20,7 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 
 	private ArrayList<Move> lastMoves = new ArrayList<Move>();
 	private Node lastNode;
+	private Double lastValue;
 
 
 	@Override
@@ -176,7 +177,7 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 			ArrayList<Node> nodes = graph.getNodesOnDepth(d); //Array que vai receber os nós da profundidade d
 
 			for (Node n: nodes) {	//Percorre todos os nós da profundidade
-				double aux = evaluateState(n.getState(), nodes.get(nodes.size() - 2).getState()); //e aplica heuritica no state
+				double aux = evaluateState(n.getState(), graph.getStartNode().getState()); //e aplica heuritica no state
 
 				if (aux > bestValue && isNotOnLoop(graph.getParentNode(n).getMove())) { //se o estado tiver uma heuristica melhor que o armazenado, troca
 					bestValue = aux;

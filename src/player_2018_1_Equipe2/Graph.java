@@ -96,6 +96,10 @@ public class Graph {
 		return aux;
 	}
 
+	public Node getStartNode() {
+		return startNode;
+	}
+
 
 //	//Lista com os nao pais
 //	List<Node> mainNodes = new ArrayList<Node>();
