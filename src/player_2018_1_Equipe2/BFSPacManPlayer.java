@@ -20,7 +20,7 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 
 	private ArrayList<Move> lastMoves = new ArrayList<Move>();
 	private Node lastNode;
-	private Double lastValue;
+	private double lastValue;
 
 
 	@Override
@@ -80,6 +80,8 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 
 		//Quantidade de pontos em jogo
 		score -= state.getDotLocations().size();
+
+		score -= Location.euclideanDistance(pacManLoc, closestDot) - Location.euclideanDistance(pacManLoc, closestGhost);
 
 		//Direçao dos fantasmas em relaçao ao pacman
 		try {
