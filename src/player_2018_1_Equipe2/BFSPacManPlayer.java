@@ -21,6 +21,7 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 	private ArrayList<Move> lastMoves = new ArrayList<Move>();
 	private Node lastNode;
 	private double lastValue;
+	private Move lastMove = null;
 
 
 	@Override
@@ -180,20 +181,20 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 
 			for (Node n: nodes) {	//Percorre todos os nós da profundidade
 				double aux = evaluateState(n.getState(), graph.getStartNode().getState()); //e aplica heuritica no state
-
-				if (aux > bestValue && isNotOnLoop(graph.getParentNode(n).getMove())) { //se o estado tiver uma heuristica melhor que o armazenado, troca
+				double penalty = (lastMove == n.getMove().getOpposite() ? -100.0 : 0.0);
+				if ((aux + penalty) > bestValue && isNotOnLoop(graph.getParentNode(n).getMove())) { //se o estado tiver uma heuristica melhor que o armazenado, troca
 					bestValue = aux;
 					bestNode = n;
 				}
 			}
 		}
-
-
+		
 		Node nextNode = graph.getParentNode(bestNode); //pega o node pai do bestNode, pois é o proximo estado do estado atual
 		lastNode = nextNode;
 		Move move = nextNode.getMove(); //pega o movimento do nextNode
 		System.out.println(bestValue + " " + move);
 		addLastMovement(move);
+		lastMove = move;
 		return move; //retorno o move
 	}
 
