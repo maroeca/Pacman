@@ -16,19 +16,21 @@ public class Graph {
 	private Node startNode;
 	private ArrayList<Node> nodes;
 
-	public int limitDepth = 4;
+	public int limitDepth;
 
 
-	Graph (Game game) {
+	Graph (Game game, int depth) {
 		startNode = new Node(game.getCurrentState(), Move.NONE, 0);
 
+
+		limitDepth = depth;
 		nodes = new ArrayList<Node>();
 		nodes.add(startNode);
 		getAllPossibleStates(startNode, 1);
 	}
 
 	private void getAllPossibleStates(Node node, int depth) {
-		if (depth >= limitDepth) { //Interrompe a funcao recursiva caso exceda o limite
+		if (depth >= limitDepth || Game.isFinal(node.getState())) { //Interrompe a funcao recursiva caso exceda o limite
 			return;
 		}
 
@@ -42,7 +44,7 @@ public class Graph {
 			//System.out.println(Game.projectPacManLocation(node.getState(), m, 1));
 			//State s = Game.projectPacManLocation(node.getState(), m, 1).get(0);	//Pega o primeiro estado do movimento realizado
 			State s = Game.getNextState(node.getState(), m);
-			if(!Game.isFinal(s))
+			//if(!Game.isFinal(s))
 			    addNode(s, node, m, depth);	//cria um nó novo e adiciona como filho do nó recebido como argumento
 		}
 

@@ -27,7 +27,7 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 	@Override
 	public Move chooseMove(Game game) {
 		lives = game.getLives();
-		this.bestMove = breadthFirstSearch(game.getCurrentState(), game);
+		this.bestMove = breadthFirstSearch(game.getCurrentState(), game, 4);
 		return bestMove;
 	}
 
@@ -170,11 +170,11 @@ public class BFSPacManPlayer extends DFSPacManPlayer{
 		return closest;
 	}
 	
-	public Move breadthFirstSearch(State state, Game game) {
+	public Move breadthFirstSearch(State state, Game game, int depth) {
 		Node bestNode = new Node(state, Move.NONE,0);
 		Double bestValue = Double.NEGATIVE_INFINITY;
 
-		Graph graph = new Graph(game); //Cria um grafo com o estado atual do jogo
+		Graph graph = new Graph(game, depth); //Cria um grafo com o estado atual do jogo
 
 		for (int d = 1; d < graph.limitDepth; d++) { //Vai pegar um array com todos os nós de uma profundidade (0 a 2)
 			ArrayList<Node> nodes = graph.getNodesOnDepth(d); //Array que vai receber os nós da profundidade d
